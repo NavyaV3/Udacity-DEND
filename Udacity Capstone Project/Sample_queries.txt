@@ -1,0 +1,20 @@
+Average temperature of the most populated cities
+
+SELECT d.city, t.avg_tmp, d.state, d.total_pop FROM demographics d
+JOIN (SELECT city, avg(avg_temp) AS avg_tmp FROM temperature
+GROUP BY city) t 
+ON d.city = t.city
+ORDER BY d.total_pop DESC
+LIMIT 10
+ 
+
+
+
+Median age of the most immigrated cities
+
+SELECT d.city,d.state,d.median_age FROM demographics d
+JOIN (SELECT TOP 10 M.city FROM (SELECT city,COUNT(immig_id) AS immig_count FROM immigration
+GROUP BY city
+ORDER BY immig_count DESC) M) i
+ON d.city = i.city
+ 
