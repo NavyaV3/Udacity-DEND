@@ -1,4 +1,4 @@
-# Project 3 : Data Warehouse
+# Project 4 : Data Lake
 
 ## Overview
 
